@@ -3,9 +3,10 @@ import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 import { RFValue } from 'react-native-responsive-fontsize'
 import { colors, fonts } from '../../../utils'
 
-const ListTodo = ({ note, onPress, onLongPress }) => {
+const ListTodo = ({ note, title, onPress, onLongPress }) => {
     return (
         <TouchableOpacity style={styles.container} onPress={onPress} onLongPress={onLongPress}>
+            <Text style={styles.textTitle}>{title}</Text>
             <Text style={styles.text}>{note}</Text>
         </TouchableOpacity>
     )
@@ -25,5 +26,10 @@ const styles = StyleSheet.create({
         fontSize: RFValue(16),
         color: colors.black,
         fontFamily: fonts.primary[500]
+    },
+    textTitle: {
+        fontSize: RFValue(20),
+        color: colors.black,
+        fontFamily: fonts.primary[800]
     }
 })

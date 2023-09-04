@@ -1,6 +1,7 @@
 import database from '@react-native-firebase/database'
+import { GoogleSignin } from '@react-native-google-signin/google-signin'
 import React, { useEffect, useState } from 'react'
-import { Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Alert, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { RFValue } from 'react-native-responsive-fontsize'
 import { useSelector } from 'react-redux'
 import { IconAdd } from '../../assets'
@@ -11,6 +12,7 @@ const Home = ({ navigation }) => {
   const globalState = useSelector((state) => state)
   const [notes, setnotes] = useState([])
   const [iduser, setIduser] = useState('')
+  const [photo, setPhoto] = useState('')
 
   const getIdentify = () => {
     getData('userData').then(res => {
@@ -37,7 +39,7 @@ const Home = ({ navigation }) => {
     database()
       .ref(`users/${iduser}/${idnote}`)
       .remove();
-      Notification('Sukses', 'Note berhasil dihapus')
+    Notification('Sukses', 'Note berhasil dihapus')
   }
 
   const openAlert = ({ idnote }) => {
@@ -51,13 +53,27 @@ const Home = ({ navigation }) => {
     ]);
   }
 
+  const isSignedIn = async () => {
+    const isSignedIn = await GoogleSignin.isSignedIn();
+    if (isSignedIn == true) {
+      const currentUser = await GoogleSignin.getCurrentUser();
+      setPhoto(JSON.stringify(currentUser.user.photo));
+    }
+  };
+
   useEffect(() => {
     getIdentify()
+    isSignedIn()
   }, [])
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>{globalState.nameApp}</Text>
+      <View style={styles.flexrowspace}>
+        <Text style={styles.text}>{globalState.nameApp}</Text>
+        <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
+          <Image source={{ uri: `${photo.replace(/["]/g, '')}` }} style={styles.imageProfile} />
+        </TouchableOpacity>
+      </View>
       <Gap height={RFValue(24)} />
       {
         notes.map(data => {
@@ -65,7 +81,7 @@ const Home = ({ navigation }) => {
             idnote: data.id,
             noted: data.note?.note
           }
-          return <ListTodo key={data.id} note={data.note?.note} onPress={() => navigation.navigate('EditToDo', params)} onLongPress={() => openAlert(params)} />
+          return <ListTodo key={data.id} title={data.note?.title} note={data.note?.note} onPress={() => navigation.navigate('EditToDo', params)} onLongPress={() => openAlert(params)} />
         })
       }
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('AddToDo')}>
@@ -98,5 +114,15 @@ const styles = StyleSheet.create({
     right: 24,
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  imageProfile: {
+    width: 24,
+    height: 24,
+    borderRadius: 12
+  },
+  flexrowspace: {
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flexDirection: 'row'
   }
 })
