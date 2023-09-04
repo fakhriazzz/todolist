@@ -2,7 +2,7 @@ import database from '@react-native-firebase/database'
 import React, { useEffect, useState } from 'react'
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { RFValue } from 'react-native-responsive-fontsize'
-import { Gap, Notification } from '../../components'
+import { Gap } from '../../components'
 import { colors, fonts, getData } from '../../utils'
 
 const AddToDo = ({ navigation }) => {

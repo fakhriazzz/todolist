@@ -5,7 +5,7 @@ import { Alert, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-na
 import { RFValue } from 'react-native-responsive-fontsize'
 import { useSelector } from 'react-redux'
 import { IconAdd } from '../../assets'
-import { Gap, ListTodo, Notification } from '../../components'
+import { Gap, ListTodo } from '../../components'
 import { colors, fonts, getData } from '../../utils'
 
 const Home = ({ navigation }) => {
