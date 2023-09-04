@@ -39,7 +39,7 @@ const Home = ({ navigation }) => {
     database()
       .ref(`users/${iduser}/${idnote}`)
       .remove();
-    Notification('Sukses', 'Note berhasil dihapus')
+    // Notification('Sukses', 'Note berhasil dihapus')
   }
 
   const openAlert = ({ idnote }) => {

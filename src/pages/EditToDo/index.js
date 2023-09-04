@@ -20,7 +20,7 @@ const EditToDo = ({ navigation, route }) => {
             })
             .then(() => console.log('Data set.'))
         navigation.navigate('Home')
-        Notification('Sukses', 'Note berhasil diedit')
+        // Notification('Sukses', 'Note berhasil diedit')
     }
 
     const getIdentify = () => {

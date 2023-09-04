@@ -19,7 +19,7 @@ const AddToDo = ({ navigation }) => {
       })
       .then(() => console.log('Data set.'))
     navigation.navigate('Home')
-    Notification('Sukses', 'Note berhasil dibuat')
+    // Notification('Sukses', 'Note berhasil dibuat')
   }
 
   const getIdentify = () => {
