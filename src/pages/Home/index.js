@@ -79,7 +79,8 @@ const Home = ({ navigation }) => {
         notes.map(data => {
           const params = {
             idnote: data.id,
-            noted: data.note?.note
+            noted: data.note?.note,
+            titled: data.note?.title
           }
           return <ListTodo key={data.id} title={data.note?.title} note={data.note?.note} onPress={() => navigation.navigate('EditToDo', params)} onLongPress={() => openAlert(params)} />
         })

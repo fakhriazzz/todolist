@@ -6,8 +6,8 @@ import { Gap } from '../../components'
 import { colors, fonts, getData } from '../../utils'
 
 const EditToDo = ({ navigation, route }) => {
-    const { idnote, noted } = route.params
-    const [title, setTitle] = useState('')
+    const { idnote, noted, titled } = route.params
+    const [title, setTitle] = useState(title)
     const [note, setNote] = useState(noted)
     const [iduser, setIduser] = useState('')
 
@@ -42,7 +42,7 @@ const EditToDo = ({ navigation, route }) => {
                 </TouchableOpacity>
             </View>
             <Gap height={RFValue(24)} />
-            <TextInput style={styles.title} multiline placeholder='Title' placeholderTextColor={colors.black} value={title} onChangeText={(value) => setTitle(value)} />
+            <TextInput style={styles.title} multiline placeholder={titled} placeholderTextColor={colors.black} value={title} onChangeText={(value) => setTitle(value)} />
             <TextInput style={styles.input} multiline placeholder={note} placeholderTextColor={colors.black} value={note} onChangeText={(value) => setNote(value)} />
         </View>
     )
