@@ -4,6 +4,7 @@ import { Image, StyleSheet, Text, View } from 'react-native'
 import { RFValue } from 'react-native-responsive-fontsize'
 import { ImageWelcome } from '../../assets'
 import { colors, fonts, storeData } from '../../utils'
+import { Gap } from '../../components'
 
 const Welcome = ({ navigation }) => {
   GoogleSignin.configure({
@@ -49,8 +50,9 @@ const Welcome = ({ navigation }) => {
       <View style={styles.topContent}>
         <Image source={ImageWelcome} style={styles.image} />
         <Text style={styles.text}>Start to keep your notes</Text>
+        <Gap height={12}/>
         <GoogleSigninButton
-          size={GoogleSigninButton.Size.Wide}
+          size={GoogleSigninButton.Size.Standard}
           color={GoogleSigninButton.Color.Dark}
           onPress={signIn}
         />
