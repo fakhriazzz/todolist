@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 import { colors, fonts } from '../../../utils'
+import { RFValue } from 'react-native-responsive-fontsize'
 
 const Button = ({ text, onPress }) => {
     return (
@@ -15,13 +16,13 @@ export default Button
 const styles = StyleSheet.create({
     container: {
         backgroundColor: colors.orange,
-        borderRadius: 12,
-        padding: 12,
+        borderRadius: RFValue(12),
+        padding: RFValue(12),
         alignItems: 'center',
         justifyContent: 'center'
     },
     text: {
-        fontSize: 16,
+        fontSize: RFValue(16),
         color: colors.white,
         fontFamily: fonts.primary[500]
     }

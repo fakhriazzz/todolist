@@ -63,13 +63,13 @@ const styles = StyleSheet.create({
     },
     title: {
         borderColor: colors.black,
-        fontSize: 16,
+        fontSize: RFValue(16),
         color: colors.black
     },
     input: {
         borderColor: colors.black,
-        borderWidth: 1,
-        borderRadius: 12,
-        padding: 8
+        borderWidth: RFValue(1),
+        borderRadius: RFValue(12),
+        padding: RFValue(8)
     }
 })

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import { Button } from '../../components';
 import { colors } from '../../utils';
+import { RFValue } from 'react-native-responsive-fontsize';
 
 const Profile = ({ navigation }) => {
     const [photo, setPhoto] = useState('')
@@ -64,9 +65,9 @@ const styles = StyleSheet.create({
         backgroundColor: colors.white
     },
     imageProfile: {
-        width: 120,
-        height: 120,
-        borderRadius: 60
+        width: RFValue(120),
+        height: RFValue(120),
+        borderRadius: RFValue(60)
     },
     top: {
         flex: 2,

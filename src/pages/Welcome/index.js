@@ -50,7 +50,7 @@ const Welcome = ({ navigation }) => {
       <View style={styles.topContent}>
         <Image source={ImageWelcome} style={styles.image} />
         <Text style={styles.text}>Start to keep your notes</Text>
-        <Gap height={12}/>
+        <Gap height={RFValue(12)}/>
         <GoogleSigninButton
           size={GoogleSigninButton.Size.Standard}
           color={GoogleSigninButton.Color.Dark}

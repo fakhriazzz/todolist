@@ -1,9 +1,7 @@
 import { GoogleSignin } from '@react-native-google-signin/google-signin'
 import React, { useEffect } from 'react'
-import { ActivityIndicator, StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import { RFValue } from 'react-native-responsive-fontsize'
-import { IconNote } from '../../assets'
-import { Gap } from '../../components'
 import { colors, fonts, storeData } from '../../utils'
 
 const Splash = ({ navigation }) => {

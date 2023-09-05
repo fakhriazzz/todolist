@@ -35,7 +35,7 @@ const AddToDo = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-        <Text style={[styles.text, { fontSize: 24 }]}>NoMee</Text>
+        <Text style={[styles.text, { fontSize: RFValue(24) }]}>NoMee</Text>
         <TouchableOpacity onPress={onSave}>
           <Text style={styles.text}>Save</Text>
         </TouchableOpacity>
@@ -62,13 +62,13 @@ const styles = StyleSheet.create({
   },
   title: {
     borderColor: colors.black,
-    fontSize: 16,
+    fontSize: RFValue(16),
     color: colors.black
   },
   input: {
     borderColor: colors.black,
-    borderWidth: 1,
-    borderRadius: 12,
-    padding: 8
+    borderWidth: RFValue(1),
+    borderRadius: RFValue(12),
+    padding: RFValue(8)
   }
 })
