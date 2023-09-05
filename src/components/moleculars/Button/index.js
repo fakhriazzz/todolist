@@ -24,6 +24,6 @@ const styles = StyleSheet.create({
     text: {
         fontSize: RFValue(16),
         color: colors.white,
-        fontFamily: fonts.primary[500]
+        fontFamily: fonts.primary[600]
     }
 })

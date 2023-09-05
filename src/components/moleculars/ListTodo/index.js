@@ -30,8 +30,8 @@ const styles = StyleSheet.create({
         fontFamily: fonts.primary[500]
     },
     textTitle: {
-        fontSize: RFValue(20),
+        fontSize: RFValue(16),
         color: colors.black,
-        fontFamily: fonts.primary[800]
+        fontFamily: fonts.primary[700]
     }
 })

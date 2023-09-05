@@ -63,12 +63,14 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: RFValue(16),
-        color: colors.black
+        color: colors.black,
+        fontFamily: fonts.primary[700]
     },
     input: {
         fontSize: RFValue(16),
         color: colors.black,
         marginTop: RFValue(-12),
-        lineHeight: RFValue(24)
+        lineHeight: RFValue(24),
+        fontFamily: fonts.primary[500]
     }
 })

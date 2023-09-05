@@ -1,8 +1,8 @@
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import React, { useEffect, useState } from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
-import { Button } from '../../components';
-import { colors } from '../../utils';
+import { Button, Gap } from '../../components';
+import { colors, fonts } from '../../utils';
 import { RFValue } from 'react-native-responsive-fontsize';
 
 const Profile = ({ navigation }) => {
@@ -48,7 +48,8 @@ const Profile = ({ navigation }) => {
         <View style={styles.container}>
             <View style={styles.top}>
                 <Image source={{ uri: `${photo.replace(/["]/g, '')}` }} style={styles.imageProfile} />
-                <Text>{name.replace(/["]/g, '')}</Text>
+                <Gap height={RFValue(12)} />
+                <Text style={{ fontSize: 16, color: colors.black, fontFamily: fonts.primary[700] }}>{name.replace(/["]/g, '')}</Text>
             </View>
             <View style={styles.bottom}>
                 <Button text='Logout' onPress={signOut} />
