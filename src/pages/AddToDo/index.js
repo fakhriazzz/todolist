@@ -36,7 +36,7 @@ const AddToDo = ({ navigation }) => {
       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', backgroundColor: colors.orange, padding: RFValue(24), marginHorizontal: RFValue(-24) }}>
         <Text style={[styles.text, { color: colors.white }]}>NoMee</Text>
         <TouchableOpacity onPress={onSave}>
-          <Text style={[styles.text, { color: colors.white }]}>Save</Text>
+          <Text style={[styles.text, { color: colors.white, fontSize: RFValue(16) }]}>Save</Text>
         </TouchableOpacity>
       </View>
       <TextInput style={styles.title} multiline placeholder='Title' placeholderTextColor={colors.black} value={title} onChangeText={(value) => setTitle(value)} />
