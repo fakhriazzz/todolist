@@ -1,6 +1,6 @@
 import database from '@react-native-firebase/database'
 import React, { useEffect, useState } from 'react'
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { RFValue } from 'react-native-responsive-fontsize'
 import { colors, fonts, getData } from '../../utils'
 
@@ -41,7 +41,9 @@ const EditToDo = ({ navigation, route }) => {
                 </TouchableOpacity>
             </View>
             <TextInput style={styles.title} multiline placeholder={title} placeholderTextColor={colors.black} value={title} onChangeText={(value) => setTitle(value)} />
-            <TextInput style={styles.input} multiline placeholder={note} placeholderTextColor={colors.black} value={note} onChangeText={(value) => setNote(value)} />
+            <ScrollView showsVerticalScrollIndicator={false}>
+                <TextInput style={styles.input} multiline placeholder={note} placeholderTextColor={colors.black} value={note} onChangeText={(value) => setNote(value)} />
+            </ScrollView>
         </View>
     )
 }
@@ -66,6 +68,7 @@ const styles = StyleSheet.create({
     input: {
         fontSize: RFValue(16),
         color: colors.black,
-        marginTop: RFValue(-12)
+        marginTop: RFValue(-12),
+        lineHeight: RFValue(24)
     }
 })
