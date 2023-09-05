@@ -1,10 +1,9 @@
 import { GoogleSignin, GoogleSigninButton } from '@react-native-google-signin/google-signin'
 import React from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import { RFValue } from 'react-native-responsive-fontsize'
-import { ImageWelcome } from '../../assets'
-import { colors, fonts, storeData } from '../../utils'
 import { Gap } from '../../components'
+import { colors, fonts, storeData } from '../../utils'
 
 const Welcome = ({ navigation }) => {
   GoogleSignin.configure({
@@ -48,14 +47,18 @@ const Welcome = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.topContent}>
-        <Image source={ImageWelcome} style={styles.image} />
-        <Text style={styles.text}>Start to keep your notes</Text>
-        <Gap height={RFValue(12)}/>
-        <GoogleSigninButton
-          size={GoogleSigninButton.Size.Standard}
-          color={GoogleSigninButton.Color.Dark}
-          onPress={signIn}
-        />
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+          <Text style={styles.text}>Welcome and start your note</Text>
+        </View>
+        <View>
+          <Text style={[styles.text, { fontSize: RFValue(14), textAlign: 'center' }]}>Easy signup and signin using google</Text>
+          <Gap height={RFValue(4)} />
+          <GoogleSigninButton
+            size={GoogleSigninButton.Size.Standard}
+            color={GoogleSigninButton.Color.Dark}
+            onPress={signIn}
+          />
+        </View>
       </View>
     </View>
   )
@@ -76,10 +79,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.white,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    paddingVertical: RFValue(36)
   },
   text: {
-    fontSize: RFValue(18),
+    fontSize: RFValue(24),
     color: colors.black,
     fontFamily: fonts.primary[500]
   }
