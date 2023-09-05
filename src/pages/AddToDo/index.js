@@ -34,7 +34,7 @@ const AddToDo = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', backgroundColor: colors.orange, padding: RFValue(24), marginHorizontal: RFValue(-24) }}>
-        <Text style={[styles.text, { fontSize: RFValue(24), color: colors.white }]}>NoMee</Text>
+        <Text style={[styles.text, { color: colors.white }]}>NoMee</Text>
         <TouchableOpacity onPress={onSave}>
           <Text style={[styles.text, { color: colors.white }]}>Save</Text>
         </TouchableOpacity>
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: RFValue(24)
   },
   text: {
-    fontSize: RFValue(16),
+    fontSize: RFValue(24),
     color: colors.black,
     fontFamily: fonts.primary[700]
   },
