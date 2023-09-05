@@ -31,16 +31,7 @@ const Splash = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.content}>
-        <IconNote />
-        <Gap height={4} />
-        <Text style={styles.text}>Keep your notes</Text>
-      </View>
-      <View style={styles.contentBottom}>
-        <ActivityIndicator color={colors.white} />
-        <Gap width={4} />
-        <Text style={styles.text2}>loading</Text>
-      </View>
+      <Text style={styles.text}>NoMee</Text>
     </View>
   )
 }
@@ -51,26 +42,18 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.orange,
-    padding: RFValue(24)
+    padding: RFValue(24),
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   text: {
-    fontSize: RFValue(16),
+    fontSize: RFValue(24),
     color: colors.white,
-    fontWeight: fonts.primary[600]
+    fontFamily: fonts.primary[800]
   },
   text2: {
     fontSize: RFValue(14),
     color: colors.white,
-    fontWeight: fonts.primary[400]
-  },
-  content: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  contentBottom: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    alignSelf: 'center'
+    fontFamily: fonts.primary[400]
   }
 })

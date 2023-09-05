@@ -1,7 +1,7 @@
 // import { combineReducers } from "redux";
 
 const initialState = {
-    nameApp: 'To do list'
+    nameApp: 'NoMee'
 }
 
 const reducer = (state = initialState, action) => {

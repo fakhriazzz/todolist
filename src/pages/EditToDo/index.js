@@ -36,7 +36,7 @@ const EditToDo = ({ navigation, route }) => {
     return (
         <View style={styles.container}>
             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-                <Text style={styles.text}>Edit your to do list</Text>
+                <Text style={[styles.text, { fontSize: 24 }]}>NoMee</Text>
                 <TouchableOpacity onPress={onSave}>
                     <Text style={styles.text}>Save</Text>
                 </TouchableOpacity>
