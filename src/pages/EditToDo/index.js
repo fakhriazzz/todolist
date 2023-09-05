@@ -2,7 +2,6 @@ import database from '@react-native-firebase/database'
 import React, { useEffect, useState } from 'react'
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { RFValue } from 'react-native-responsive-fontsize'
-import { Gap } from '../../components'
 import { colors, fonts, getData } from '../../utils'
 
 const EditToDo = ({ navigation, route }) => {
@@ -35,13 +34,12 @@ const EditToDo = ({ navigation, route }) => {
 
     return (
         <View style={styles.container}>
-            <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-                <Text style={[styles.text, { fontSize: 24 }]}>NoMee</Text>
+            <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', backgroundColor: colors.orange, padding: RFValue(24), marginHorizontal: RFValue(-24) }}>
+                <Text style={[styles.text, { fontSize: 24, color: colors.white }]}>NoMee</Text>
                 <TouchableOpacity onPress={onSave}>
-                    <Text style={styles.text}>Save</Text>
+                    <Text style={[styles.text, { color: colors.white }]}>Save</Text>
                 </TouchableOpacity>
             </View>
-            <Gap height={RFValue(24)} />
             <TextInput style={styles.title} multiline placeholder={titled} placeholderTextColor={colors.black} value={title} onChangeText={(value) => setTitle(value)} />
             <TextInput style={styles.input} multiline placeholder={note} placeholderTextColor={colors.black} value={note} onChangeText={(value) => setNote(value)} />
         </View>
@@ -54,7 +52,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: colors.white,
-        padding: RFValue(24)
+        paddingHorizontal: RFValue(24)
     },
     text: {
         fontSize: RFValue(16),
@@ -62,14 +60,12 @@ const styles = StyleSheet.create({
         fontFamily: fonts.primary[700]
     },
     title: {
-        borderColor: colors.black,
         fontSize: RFValue(16),
         color: colors.black
     },
     input: {
-        borderColor: colors.black,
-        borderWidth: RFValue(1),
-        borderRadius: RFValue(12),
-        padding: RFValue(8)
+        fontSize: RFValue(16),
+        color: colors.black,
+        marginTop: RFValue(-12)
     }
 })

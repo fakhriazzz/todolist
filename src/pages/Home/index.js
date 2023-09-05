@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     backgroundColor: colors.orange,
-    marginHorizontal: -24,
-    padding: 24
+    marginHorizontal: RFValue(-24),
+    padding: RFValue(24)
   }
 })
