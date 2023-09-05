@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
         borderColor: colors.black,
         borderWidth: 1,
         borderRadius: RFValue(12),
-        marginBottom: RFValue(12)
+        marginVertical: RFValue(12)
     },
     text: {
         fontSize: RFValue(16),

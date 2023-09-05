@@ -5,7 +5,7 @@ import { Alert, Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } fr
 import { RFValue } from 'react-native-responsive-fontsize'
 import { useSelector } from 'react-redux'
 import { IconAdd } from '../../assets'
-import { Gap, ListTodo } from '../../components'
+import { ListTodo } from '../../components'
 import { colors, fonts, getData } from '../../utils'
 
 const Home = ({ navigation }) => {
@@ -69,14 +69,13 @@ const Home = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.flexrowspace}>
-        <Text style={styles.text}>{globalState.nameApp}</Text>
+        <Text style={[styles.text, { color: colors.white }]}>{globalState.nameApp}</Text>
         <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
           <Image source={{ uri: `${photo.replace(/["]/g, '')}` }} style={styles.imageProfile} />
         </TouchableOpacity>
       </View>
-      <Gap height={RFValue(24)} />
-      <View style={{flex: 1}}>
-        <ScrollView>
+      <View style={{ flex: 1 }}>
+        <ScrollView showsVerticalScrollIndicator={false}>
           {
             notes.map(data => {
               const params = {
@@ -102,7 +101,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.white,
-    paddingTop: RFValue(24),
     paddingHorizontal: RFValue(24)
   },
   text: {
@@ -122,13 +120,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   imageProfile: {
-    width: RFValue(24),
-    height: RFValue(24),
-    borderRadius: RFValue(12)
+    width: RFValue(36),
+    height: RFValue(36),
+    borderRadius: RFValue(18)
   },
   flexrowspace: {
     justifyContent: 'space-between',
     alignItems: 'center',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    backgroundColor: colors.orange,
+    marginHorizontal: -24,
+    padding: 24
   }
 })
