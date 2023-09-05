@@ -77,14 +77,16 @@ const Home = ({ navigation }) => {
       <View style={{ flex: 1 }}>
         <ScrollView showsVerticalScrollIndicator={false}>
           {
-            notes.map(data => {
+            notes.length > 0 ? notes.map(data => {
               const params = {
                 idnote: data.id,
                 noted: data.note?.note,
                 titled: data.note?.title
               }
               return <ListTodo key={data.id} title={data.note?.title} note={data.note?.note} onPress={() => navigation.navigate('EditToDo', params)} onLongPress={() => openAlert(params)} />
-            })
+            }) : <View style={{ alignSelf: 'center' }}>
+              <Text style={[styles.text, { fontSize: RFValue(16), marginTop: RFValue(24) }]}>Empty Notes</Text>
+            </View>
           }
         </ScrollView>
       </View>

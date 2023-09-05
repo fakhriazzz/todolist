@@ -2,11 +2,13 @@ import React from 'react'
 import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 import { RFValue } from 'react-native-responsive-fontsize'
 import { colors, fonts } from '../../../utils'
+import { Gap } from '../../atoms'
 
 const ListTodo = ({ note, title, onPress, onLongPress }) => {
     return (
         <TouchableOpacity style={styles.container} onPress={onPress} onLongPress={onLongPress}>
             <Text style={styles.textTitle}>{title}</Text>
+            <Gap height={RFValue(12)}/>
             <Text style={styles.text}>{note}</Text>
         </TouchableOpacity>
     )
