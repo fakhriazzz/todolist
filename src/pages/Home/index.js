@@ -132,6 +132,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: colors.orange,
     marginHorizontal: RFValue(-24),
-    padding: RFValue(24)
+    paddingHorizontal: RFValue(24),
+    paddingVertical: RFValue(16)
   }
 })
