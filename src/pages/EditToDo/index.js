@@ -6,7 +6,7 @@ import { colors, fonts, getData } from '../../utils'
 
 const EditToDo = ({ navigation, route }) => {
     const { idnote, noted, titled } = route.params
-    const [title, setTitle] = useState(title)
+    const [title, setTitle] = useState(titled)
     const [note, setNote] = useState(noted)
     const [iduser, setIduser] = useState('')
 
@@ -40,7 +40,7 @@ const EditToDo = ({ navigation, route }) => {
                     <Text style={[styles.text, { color: colors.white, fontSize: RFValue(16) }]}>Save</Text>
                 </TouchableOpacity>
             </View>
-            <TextInput style={styles.title} multiline placeholder={titled} placeholderTextColor={colors.black} value={title} onChangeText={(value) => setTitle(value)} />
+            <TextInput style={styles.title} multiline placeholder={title} placeholderTextColor={colors.black} value={title} onChangeText={(value) => setTitle(value)} />
             <TextInput style={styles.input} multiline placeholder={note} placeholderTextColor={colors.black} value={note} onChangeText={(value) => setNote(value)} />
         </View>
     )
