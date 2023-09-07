@@ -49,36 +49,45 @@ const Welcome = ({ navigation }) => {
   };
 
   const onSignNative = () => {
-    auth()
-      .createUserWithEmailAndPassword(email, password)
-      .then(() => {
-        const userData = {
-          email: email.replace(/["@.]/g, ''),
-          sign: 'native'
-        }
-        storeData('userData', userData)
-        navigation.navigate('Home')
-      })
-      .catch(error => {
-        if (error.code === 'auth/email-already-in-use') {
-          auth()
-            .signInWithEmailAndPassword(email, password)
-            .then(() => {
-              const userData = {
-                email: email.replace(/["@.]/g, ''),
-                sign: 'native'
-              }
-              storeData('userData', userData)
-              navigation.navigate('Home')
-            })
-            .catch(error => {
+    if (email == '') {
+      Alert.alert('That email address is invalid!');
+    } else if (password == '') {
+      Alert.alert('That password address is invalid!');
+    } else if (password.length < 8) {
+      Alert.alert('That password length minimun 8 character');
+    } else {
+      auth()
+        .createUserWithEmailAndPassword(email, password)
+        .then(() => {
+          const userData = {
+            email: email.replace(/["@.]/g, ''),
+            sign: 'native'
+          }
+          storeData('userData', userData)
+          navigation.navigate('Home')
+        })
+        .catch(error => {
+          if (error.code === 'auth/email-already-in-use') {
+            auth()
+              .signInWithEmailAndPassword(email, password)
+              .then(() => {
+                const userData = {
+                  email: email.replace(/["@.]/g, ''),
+                  sign: 'native'
+                }
+                storeData('userData', userData)
+                navigation.navigate('Home')
+              })
+              .catch(error => {
 
-            });
-        }
-        if (error.code === 'auth/invalid-email') {
-          Alert.alert('That email address is invalid!');
-        }
-      });
+              });
+          }
+          if (error.code === 'auth/invalid-email') {
+            Alert.alert('That email address is invalid!');
+          }
+        });
+    }
+
   }
 
   return (
