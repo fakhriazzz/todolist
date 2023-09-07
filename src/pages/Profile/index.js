@@ -1,9 +1,9 @@
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import React, { useEffect, useState } from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
-import { Button, Gap } from '../../components';
-import { colors, fonts } from '../../utils';
 import { RFValue } from 'react-native-responsive-fontsize';
+import { Button, Gap } from '../../components';
+import { colors, fonts, getData, removeData } from '../../utils';
 
 const Profile = ({ navigation }) => {
     const [photo, setPhoto] = useState('')
@@ -31,23 +31,49 @@ const Profile = ({ navigation }) => {
         }
     };
 
-    const signOut = async () => {
+    const signOutGoogle = async () => {
         try {
             await GoogleSignin.signOut();
             navigation.replace('Welcome')
         } catch (error) {
-            console.error(error);
+            
         }
     };
 
+    const signOut = () => {
+        getData('userData').then(res => {
+            if (res.sign == 'native') {
+                removeData('userData')
+                navigation.replace('Welcome')
+            } else {
+                signOutGoogle()
+            }
+        })
+    }
+
+    const initialUser = () => {
+        getData('userData').then(res => {
+            if (res.sign == 'native') {
+                setName(res.email)
+            } else {
+                isSignedIn()
+            }
+        })
+    }
+
     useEffect(() => {
-        isSignedIn()
+        initialUser()
     }, [])
 
     return (
         <View style={styles.container}>
             <View style={styles.top}>
-                <Image source={{ uri: `${photo.replace(/["]/g, '')}` }} style={styles.imageProfile} />
+                {
+                    photo == '' ?
+                        <View style={[styles.imageProfile, { backgroundColor: colors.black }]} />
+                        :
+                        <Image source={{ uri: `${photo.replace(/["]/g, '')}` }} style={styles.imageProfile} />
+                }
                 <Gap height={RFValue(12)} />
                 <Text style={{ fontSize: 16, color: colors.black, fontFamily: fonts.primary[700] }}>{name.replace(/["]/g, '')}</Text>
             </View>

@@ -1,24 +1,17 @@
-import { GoogleSignin } from '@react-native-google-signin/google-signin'
 import React, { useEffect } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { RFValue } from 'react-native-responsive-fontsize'
-import { colors, fonts, storeData } from '../../utils'
+import { colors, fonts, getData } from '../../utils'
 
 const Splash = ({ navigation }) => {
-  const isSignedIn = async () => {
-    const isSignedIn = await GoogleSignin.isSignedIn();
-    if (isSignedIn == true) {
-      const currentUser = await GoogleSignin.getCurrentUser();
-      const userData = {
-        name: JSON.stringify(currentUser.user.name),
-        email: JSON.stringify(currentUser.user.email),
-        id: JSON.stringify(currentUser.user.id)
+  const isSignedIn = () => {
+    getData('userData').then(res => {
+      if (res) {
+        navigation.replace('Home')
+      } else {
+        navigation.replace('Welcome')
       }
-      storeData('userData', userData)
-      navigation.replace('Home')
-    } else {
-      navigation.replace('Welcome')
-    }
+    })
   };
 
   useEffect(() => {

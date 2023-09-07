@@ -7,23 +7,22 @@ import { colors, fonts, getData } from '../../utils'
 const AddToDo = ({ navigation }) => {
   const [title, setTitle] = useState('')
   const [note, setNote] = useState('')
-  const [iduser, setIduser] = useState('')
+  const [email, setEmail] = useState('')
 
   const onSave = () => {
     database()
-      .ref(`users/${iduser}`)
+      .ref(`users/${email}`)
       .push({
         title: title,
         note: note,
       })
-      .then(() => console.log('Data set.'))
     navigation.navigate('Home')
     // Notification('Sukses', 'Note berhasil dibuat')
   }
 
   const getIdentify = () => {
     getData('userData').then(res => {
-      setIduser(res.id);
+      setEmail(res.email);
     })
   }
 

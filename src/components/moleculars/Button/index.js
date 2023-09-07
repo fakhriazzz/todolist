@@ -16,7 +16,7 @@ export default Button
 const styles = StyleSheet.create({
     container: {
         backgroundColor: colors.orange,
-        borderRadius: RFValue(12),
+        borderRadius: RFValue(2),
         padding: RFValue(12),
         alignItems: 'center',
         justifyContent: 'center'

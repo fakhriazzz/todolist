@@ -11,14 +11,14 @@ import { colors, fonts, getData } from '../../utils'
 const Home = ({ navigation }) => {
   const globalState = useSelector((state) => state)
   const [notes, setnotes] = useState([])
-  const [iduser, setIduser] = useState('')
+  const [email, setEmail] = useState('')
   const [photo, setPhoto] = useState('')
 
   const getIdentify = () => {
     getData('userData').then(res => {
-      setIduser(res.id)
+      setEmail(res.email)
       database()
-        .ref(`users/${res.id}`)
+        .ref(`users/${res.email}`)
         .on('value', res => {
           const data = res.val();
           if (data != null) {
@@ -37,7 +37,7 @@ const Home = ({ navigation }) => {
 
   const onDelete = (idnote) => {
     database()
-      .ref(`users/${iduser}/${idnote}`)
+      .ref(`users/${email}/${idnote}`)
       .remove();
     // Notification('Sukses', 'Note berhasil dihapus')
   }
@@ -61,9 +61,19 @@ const Home = ({ navigation }) => {
     }
   };
 
+  const initialUser = () => {
+    getData('userData').then(res => {
+      if (res.sign == 'native') {
+
+      } else {
+        isSignedIn()
+      }
+    })
+  }
+
   useEffect(() => {
     getIdentify()
-    isSignedIn()
+    initialUser()
   }, [])
 
   return (
@@ -71,7 +81,12 @@ const Home = ({ navigation }) => {
       <View style={styles.flexrowspace}>
         <Text style={[styles.text, { color: colors.white }]}>{globalState.nameApp}</Text>
         <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-          <Image source={{ uri: `${photo.replace(/["]/g, '')}` }} style={styles.imageProfile} />
+          {
+            photo == '' ?
+              <View style={[styles.imageProfile, { backgroundColor: colors.black}]} />
+              :
+              <Image source={{ uri: `${photo.replace(/["]/g, '')}` }} style={styles.imageProfile} />
+          }
         </TouchableOpacity>
       </View>
       <View style={{ flex: 1 }}>

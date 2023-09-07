@@ -8,23 +8,22 @@ const EditToDo = ({ navigation, route }) => {
     const { idnote, noted, titled } = route.params
     const [title, setTitle] = useState(titled)
     const [note, setNote] = useState(noted)
-    const [iduser, setIduser] = useState('')
+    const [email, setEmail] = useState('')
 
     const onSave = () => {
         database()
-            .ref(`users/${iduser}/${idnote}`)
+            .ref(`users/${email}/${idnote}`)
             .update({
                 title: title,
                 note: note,
             })
-            .then(() => console.log('Data set.'))
         navigation.navigate('Home')
         // Notification('Sukses', 'Note berhasil diedit')
     }
 
     const getIdentify = () => {
         getData('userData').then(res => {
-            setIduser(res.id);
+            setEmail(res.email);
         })
     }
 
