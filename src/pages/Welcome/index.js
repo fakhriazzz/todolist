@@ -52,7 +52,7 @@ const Welcome = ({ navigation }) => {
     if (email == '') {
       Alert.alert('That email address is invalid!');
     } else if (password == '') {
-      Alert.alert('That password address is invalid!');
+      Alert.alert('That password is invalid!');
     } else if (password.length < 8) {
       Alert.alert('That password length minimun 8 character');
     } else {
