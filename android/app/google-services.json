@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:409968645323:android:afc308ad1241d4ab1cf74e",
         "android_client_info": {
-          "package_name": "com.todolist.me"
+          "package_name": "com.todolist.app"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "409968645323-9vn8d0jusdqrjg5skqo7bltus20f3vls.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.todolist.me",
+            "package_name": "com.todolist.app",
             "certificate_hash": "910ed7869043aa01d2fcae1a4331712aa7799a77"
           }
         },
@@ -26,7 +26,7 @@
           "client_id": "409968645323-f2jg98alsjntfgqs50q9c1p0hklhgnso.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.todolist.me",
+            "package_name": "com.todolist.app",
             "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
           }
         },

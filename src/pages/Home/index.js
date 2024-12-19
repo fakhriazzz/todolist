@@ -74,7 +74,7 @@ const Home = ({ navigation }) => {
   useEffect(() => {
     getIdentify()
     initialUser()
-  }, [])
+  }, [notes])
 
   return (
     <View style={styles.container}>
@@ -83,7 +83,7 @@ const Home = ({ navigation }) => {
         <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
           {
             photo == '' ?
-              <View style={[styles.imageProfile, { backgroundColor: colors.black}]} />
+              <View style={[styles.imageProfile, { backgroundColor: colors.black }]} />
               :
               <Image source={{ uri: `${photo.replace(/["]/g, '')}` }} style={styles.imageProfile} />
           }

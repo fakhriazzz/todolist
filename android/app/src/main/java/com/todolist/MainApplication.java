@@ -1,4 +1,4 @@
-package com.todolist.me;
+package com.todolist.app;
 
 import android.app.Application;
 import com.facebook.react.PackageList;
